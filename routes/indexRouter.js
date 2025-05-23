@@ -1,26 +1,14 @@
 // routes/indexRouter.js
 const { Router } = require("express");
+const db = require("../db");
+const { getindexById } = require("../controllers/indexController");
 
 const indexRouter = Router();
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
-
 indexRouter.get("/", (req, res) => {
-  res.render("index", { messages: messages });
+  res.render("index", { messages: db.messages });
 });
-indexRouter.get("/about", (req, res) => {
-  res.send("About index");
-});
+
+indexRouter.get("/:indexId", getindexById);
 
 module.exports = indexRouter;

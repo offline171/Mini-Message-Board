@@ -1,5 +1,6 @@
 // routes/newRouter.js
 const { Router } = require("express");
+const db = require("../db");
 
 const newRouter = Router();
 
@@ -7,14 +8,13 @@ newRouter.get("/", (req, res) => {
   res.render("form");
 });
 
-newRouter.get("/enter", (req, res) => {
-  messages.push({ text: "testing 123", user: "NHBlis", added: new Date() });
-  req.redirect("/");
+newRouter.get("/extra", (req, res) => {
+  res.render("single", { messages: db.getMessage(1) });
 });
 
 newRouter.post("/", (req,res) => {
-  messages.push({ text: msgtext, user: msguser, added: new Date() });
-  req.redirect("/");
+  db.pushMessages({ text: req.body.msgtext, user: req.body.msguser, added: new Date() });
+  res.redirect("/");
 });
 
 module.exports = newRouter;

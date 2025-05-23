@@ -10,9 +10,14 @@
     </a>
     <ul>
       <% for (let i = 0; i < messages.length; i++) { %>
-        <%= messages[i].user %>"
+        <%= messages[i].user %> - 
         <%= messages[i].text %>
-        <%= messages[i].added %>
+        <button>
+          <a href="./<%= i %>">
+            <span>Open details</span>
+          </a>
+        </button><br>
+        <date>(<%= messages[i].added.getMonth() %>/<%= messages[i].added.getDate() %>/<%= messages[i].added.getDate() %>) <%= messages[i].added.getHours() %>:<%= messages[i].added.getMinutes().toString().padStart(2, '0') %></date>
         <hr />
       <% } %>
     </ul>
