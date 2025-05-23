@@ -1,4 +1,4 @@
-// website/... (not new)
+// routes/indexRouter.js
 const { Router } = require("express");
 
 const indexRouter = Router();
@@ -16,6 +16,11 @@ const messages = [
   }
 ];
 
-indexRouter.get("/", (req,res) => {
-  res.render("index", {messages: messages});
+indexRouter.get("/", (req, res) => {
+  res.render("index", { messages: messages });
 });
+indexRouter.get("/about", (req, res) => {
+  res.send("About index");
+});
+
+module.exports = indexRouter;

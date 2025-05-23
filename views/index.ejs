@@ -1,20 +1,20 @@
+<!-- index.ejs -->
 <html>
-    <head>
-        <title>Homepage</title>
-    </head>
-        <a href="/new">
-          <span>Send a message yourself!</span>
-        </a>
-    <body>
-        <ul>
-            <% for (let i = 0; i < messages.length; i++) { %>
-              <li>
-                <h2> <%= messages[i].user %> </h2>
-                <h3> <%= messages[i].text %> </h3>
-                <h3> <%= messages[i].date %> </h3>
-                <hr />
-              </li>
-            <% } %>
-        </ul>
-    </body>
+  <head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a href="./new">
+      <span>Send a message!</span>
+    </a>
+    <ul>
+      <% for (let i = 0; i < messages.length; i++) { %>
+        <%= messages[i].user %>"
+        <%= messages[i].text %>
+        <%= messages[i].added %>
+        <hr />
+      <% } %>
+    </ul>
+  </body>
 </html>
