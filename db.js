@@ -15,9 +15,4 @@ async function pushMessages(value){
   messages.push(value);
   return messages;
 };
-
-async function getMessage(value){
-  return messages[value];
-};
-
-module.exports = {messages, pushMessages, getMessage};
+module.exports = {messages, pushMessages};

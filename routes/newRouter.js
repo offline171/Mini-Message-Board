@@ -8,10 +8,6 @@ newRouter.get("/", (req, res) => {
   res.render("form");
 });
 
-newRouter.get("/extra", (req, res) => {
-  res.render("single", { messages: db.getMessage(1) });
-});
-
 newRouter.post("/", (req,res) => {
   db.pushMessages({ text: req.body.msgtext, user: req.body.msguser, added: new Date() });
   res.redirect("/");
